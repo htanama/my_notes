@@ -1,0 +1,1 @@
+g++ 02_getting_an_image_on_the_screen.cpp -I C:\mingw64\include\SDL2 -L C:\mingw64\lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -o bmp_image_to_screen
