@@ -1,0 +1,10 @@
+Clone over HTTPS
+$ git clone https://github.com/htanama/my_notes.git
+
+git status  					// to check for missing files
+
+git add myfolder				//This will add your folder and any new files to the staging area.
+
+git commit -m "commit message"  // give your commit a description.
+
+git push			// push your commit, including any new folders and files, to GitHub.
