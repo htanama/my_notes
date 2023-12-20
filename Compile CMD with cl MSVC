@@ -9,3 +9,41 @@ or use this
 @echo off
 
 cl -Zi /Fe: LoadFromFile32.exe LoadFromFile.cpp /I"C:\dev\SDL2\include" /link /LIBPATH:C:\dev\SDL2\lib\x86 /SUBSYSTEM:WINDOWS shell32.lib SDL2.lib SDL2main.lib SDL2_image.lib
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+REM THIS IS A WORKING SCRIPT:
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+@echo off
+
+REM Set the path to the Visual Studio environment variables
+REM call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+REM call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
+
+set SDL2_PATH=C:\dev\SDL2
+set GLM_PATH=..\
+set IMGUI_PATH=..\imgui
+set IMGUI_BACKEND_PATH=..\imgui\backends
+
+set SOURCE_FILES=..\src\*.cpp ..\imgui\*.cpp ..\imgui\backends\imgui_impl_sdl2.cpp ..\imgui\backends\imgui_impl_sdlrenderer2.cpp
+set OUTPUT_EXE=my_program.exe
+
+REM Set additional compiler and linker options if needed
+set COMPILER_OPTIONS=/EHsc /Zi
+set LINKER_OPTIONS=/SUBSYSTEM:WINDOWS Shell32.lib
+
+REM Set library paths and libraries
+set LIB_PATHS=C:\dev\SDL2\lib\x86
+set LIBRARIES=SDL2main.lib SDL2_ttf.lib SDL2.lib SDL2_image.lib SDL2_mixer.lib
+
+REM Compile source files
+cl %COMPILER_OPTIONS% %SOURCE_FILES% /Fe%OUTPUT_EXE% /I %SDL2_PATH% /I %GLM_PATH% /I %IMGUI_PATH% /I %IMGUI_BACKEND_PATH% /link /LIBPATH:%LIB_PATHS% %LIBRARIES% %LINKER_OPTIONS%
+
+REM Clean up unnecessary files
+del *.ilk *.obj *.pdb
+
+REM Display any error messages
+if errorlevel 1 (
+    echo Compilation failed.
+) else (
+    echo Compilation successful.
+)
