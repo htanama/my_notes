@@ -8,3 +8,19 @@ git add myfolder				//This will add your folder and any new files to the staging
 git commit -m "commit message"  // give your commit a description.
 
 git push			// push your commit, including any new folders and files, to GitHub.
+
+====================================================================================================
+…or create a new repository on the command line
+echo "# RedBob_ver_0.2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M Private_Notes
+git remote add origin https://github.com/htanama/RedBob_ver_0.2.git
+git push -u origin Private_Notes
+
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/htanama/RedBob_ver_0.2.git
+git branch -M Private_Notes
+git push -u origin Private_Note
