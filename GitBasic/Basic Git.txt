@@ -24,3 +24,10 @@ git push -u origin Private_Notes
 git remote add origin https://github.com/htanama/RedBob_ver_0.2.git
 git branch -M Private_Notes
 git push -u origin Private_Note
+
+==================================================================================================
+
+git branch -m Private_Notes master
+git fetch origin
+git branch -u master master
+git remote set-head origin -a
