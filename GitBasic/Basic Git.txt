@@ -26,7 +26,7 @@ git branch -M Private_Notes
 git push -u origin Private_Note
 
 ==================================================================================================
-
+If you have a local clone, you can update it by running the following commands.
 git branch -m Private_Notes master
 git fetch origin
 git branch -u master master
